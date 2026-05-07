@@ -1,0 +1,16 @@
+node_modules/
+.next/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.env.local
+.venv/
+venv/
+backend/data/*.db
+*.db
+logs/
+backend/logs/
+backend/temp/
+.playwright-cli/

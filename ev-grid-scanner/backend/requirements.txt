@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+python-dotenv
+httpx
+aiosqlite
+pillow
+reportlab==4.0.8
+
+# NumPy 1.26.x doesn't ship wheels for Python 3.14, which forces a source build
+# (and fails on machines without a full compiler toolchain). Use 2.x on 3.14+.
+numpy==1.26.4; python_version < "3.14"
+numpy>=2.0.0; python_version >= "3.14"
