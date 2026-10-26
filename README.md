@@ -46,3 +46,17 @@ cd ev-grid-scanner
 
 - `.env` files are intentionally ignored by git.
 - Build output folders (`node_modules/`, `.next/`, virtualenvs, logs) are ignored as well.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    User[Map user] --> FE[Web frontend]
+    FE --> API[FastAPI backend<br/>analyze / zones / flood / geocode / maps / report]
+    API --> Svc[Services<br/>scoring / demand / RTO / maps / vision / cost]
+    Svc --> Data[Data<br/>210K+ records, RTO zones, flood zones, BESCOM costs]
+    Svc --> Score[Viability score 1-10<br/>per 500m x 500m cell]
+```
+Scores any grid cell for charger viability from demand, grid access,
+flood risk, and cost — a number, not a guess.
+
